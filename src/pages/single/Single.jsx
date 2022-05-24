@@ -21,10 +21,10 @@ const Single = () => {
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">Jane Doe</h1>
+                <h1 className="itemTitle">Juana Gómez</h1>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue">janedoe@gmail.com</span>
+                  <span className="itemValue">juanagomez@gmail.com</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Teléfono:</span>
@@ -33,7 +33,7 @@ const Single = () => {
                 <div className="detailItem">
                   <span className="itemKey">Dirección:</span>
                   <span className="itemValue">
-                    Calle 497 entre 12 y 14, Mar del Plata
+                    Calle 479 entre 11 y 13, Mar del Plata
                   </span>
                 </div>
                 <div className="detailItem">

@@ -7,17 +7,20 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
-const data = [
-  { name: "Enero", Total: 1200 },
-  { name: "Febrero", Total: 2100 },
-  { name: "Marzo", Total: 800 },
-  { name: "Abril", Total: 1600 },
-  { name: "Mayo", Total: 900 },
-  { name: "Junio", Total: 1700 },
-];
+import { useTranslation } from "react-i18next";
 
 const Chart = ({ aspect, title }) => {
+  const { t } = useTranslation();
+
+  const data = [
+    { name: t("january"), Total: 1200 },
+    { name: t("february"), Total: 2100 },
+    { name: t("march"), Total: 800 },
+    { name: t("april"), Total: 1600 },
+    { name: t("may"), Total: 900 },
+    { name: t("june"), Total: 1700 },
+  ];
+
   return (
     <div className="chart">
       <div className="title">{title}</div>

@@ -6,11 +6,33 @@ import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlin
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
+import { useTranslation } from "react-i18next";
+import LocaleContext from "../../LocaleContext";
+import i18n from "../../i18n";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
+
+  const { t } = useTranslation();
+  const { locale } = useContext(LocaleContext);
+
+  function changeLocale(l) {
+    if (locale !== l) {
+      i18n.changeLanguage(l);
+    }
+  }
+
+  function traducir() {
+    console.log("Cambiar l");
+    // locale === "en" ? changeLocale("es") : changeLocale("en");
+    locale === "en"
+      ? changeLocale("es")
+      : locale === "es"
+      ? changeLocale("it")
+      : changeLocale("en");
+  }
 
   return (
     <div className="navbar">
@@ -21,8 +43,8 @@ const Navbar = () => {
         </div>
         <div className="items">
           <div className="item">
-            <LanguageOutlinedIcon className="icon" />
-            &nbsp;Castellano
+            <LanguageOutlinedIcon className="icon" onClick={() => traducir()} />
+            &nbsp;{t("language")}
           </div>
           <div className="item">
             <DarkModeOutlinedIcon

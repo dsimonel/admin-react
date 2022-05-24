@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Datatable = () => {
   const [data, setData] = useState(userRows);
@@ -10,6 +11,8 @@ const Datatable = () => {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
+
+  const { t } = useTranslation();
 
   const actionColumn = [
     {
@@ -20,13 +23,13 @@ const Datatable = () => {
         return (
           <div className="cellAction">
             <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">Ver</div>
+              <div className="viewButton">{t('see')}</div>
             </Link>
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
             >
-              Eliminar
+              {t('delete')}
             </div>
           </div>
         );
